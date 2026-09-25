@@ -82,6 +82,41 @@
       </div>
     </div>
   </header>
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div id="nav-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <!-- Mobile Navigation Slide Drawer -->
+  <aside 
+    id="mobile-nav-drawer" 
+    class="fixed top-0 right-0 h-full w-64 bg-[#0d1017] border-l border-neutral-800 z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl"
+  >
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-neutral-800">
+        <span class="text-sm font-bold tracking-wider uppercase text-neutral-400">Navigation</span>
+        <button id="nav-close-btn" class="text-neutral-400 hover:text-white p-1">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col space-y-4 mt-8 text-sm font-bold uppercase tracking-wider">
+        <a href="#home" class="mobile-link text-white hover:text-[#CCFF00] transition">Home</a>
+        <a href="#shop" class="mobile-link text-neutral-400 hover:text-[#CCFF00] transition">Shop</a>
+        <a href="#collections" class="mobile-link text-neutral-400 hover:text-[#CCFF00] transition">Collections</a>
+        <a href="#about" class="mobile-link text-neutral-400 hover:text-[#CCFF00] transition">About</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-neutral-800 text-[11px] text-neutral-500 uppercase tracking-widest">
+      KICKZ &copy; Streetwear Drop
+    </div>
+  </aside>
+
+  <!-- Placeholder spacer so page content isn't hidden under fixed navbar -->
+  <main class="pt-20">
+    <!-- Hero Section will go here next -->
+  </main>
 <script src="script.js"></script>
 </body>
 </html>
