@@ -167,9 +167,43 @@
             </button>
           </div>
         </div>
-        
-          </section>
+        <!-- Right Content: Sneaker Showcase & Graphic Elements (Column 8 to 12) -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          
+          <!-- Giant Background Neon Polygon / Geometric Shape -->
+          <div class="absolute w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-tr from-[#CCFF00] to-lime-400 opacity-90 rounded-[3rem] rotate-12 -z-10 shadow-[0_0_80px_rgba(204,255,0,0.25)] flex items-center justify-center">
+            <!-- Inner dark cutout pattern for streetwear aesthetic -->
+            <div class="w-48 h-48 sm:w-64 sm:h-64 bg-[#07090E] rounded-[2rem] rotate-45 opacity-90"></div>
+          </div>
 
+          <!-- Main Floating Sneaker Image -->
+          <div class="relative z-10 w-full max-w-md sm:max-w-lg transition-transform duration-500 hover:scale-105">
+            <img 
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80" 
+              alt="Air Max Urban Drop" 
+              class="w-full object-contain filter drop-shadow-[0_25px_35px_rgba(0,0,0,0.8)] -rotate-12 translate-y-2"
+            />
+
+            <!-- Floating Price Tag Pill -->
+            <div class="absolute bottom-4 right-2 sm:right-6 bg-[#0E131F]/90 backdrop-blur-md border border-neutral-800 px-4 py-2 rounded-2xl flex items-center gap-3 shadow-xl">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#CCFF00] animate-ping"></span>
+              <div>
+                <p class="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Air Max 270</p>
+                <p class="text-sm font-black text-white">$159.99</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Number Pagination Indicators (01 / 02 / 03 / 04) -->
+          <div class="hidden sm:flex flex-col items-center space-y-3 absolute right-[-2rem] top-1/2 -translate-y-1/2 text-xs font-mono font-bold">
+            <span class="text-[#CCFF00] cursor-pointer">01</span>
+            <span class="text-neutral-600 hover:text-white transition cursor-pointer">02</span>
+            <span class="text-neutral-600 hover:text-white transition cursor-pointer">03</span>
+            <span class="text-neutral-600 hover:text-white transition cursor-pointer">04</span>
+          </div>
+        </div>
+      </div>
+          </section>
   </main>
 <script src="script.js"></script>
 </body>
