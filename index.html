@@ -455,6 +455,22 @@
     <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
       <!-- Dynamic Cart Items injected via JS -->
     </div>
+    <!-- Drawer Footer: Pricing & Checkout -->
+    <div class="p-6 border-t border-neutral-800/80 bg-[#07090E]/90 space-y-4">
+      <div class="space-y-2 text-xs font-semibold text-neutral-400">
+        <div class="flex justify-between items-center">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="text-white text-sm font-bold">$0.00</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span>Shipping</span>
+          <span id="cart-shipping" class="text-[#CCFF00]">Calculated at next step</span>
+        </div>
+        <div class="border-t border-neutral-800 pt-2 flex justify-between items-center text-sm font-extrabold text-white">
+          <span>Total</span>
+          <span id="cart-total" class="text-base text-[#CCFF00]">$0.00</span>
+        </div>
+      </div>
       </section>
 <script src="script.js"></script>
 </body>
