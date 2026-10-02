@@ -141,3 +141,27 @@ function handleAddToCart(id) {
 document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedProducts();
 });
+// Initial Cart State (Default kahi items thevle ahet jya mule suruvatila preview disel)
+let cart = [
+  {
+    id: "nike-air-max-270",
+    name: "Air Max 270",
+    price: 159.99,
+    quantity: 1,
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    id: "jordan-1-retro-high",
+    name: "Jordan 1 Retro High OG",
+    price: 179.99,
+    quantity: 1,
+    image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    id: "new-balance-550",
+    name: "New Balance 550",
+    price: 109.99,
+    quantity: 1,
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=300&q=80"
+  }
+];
