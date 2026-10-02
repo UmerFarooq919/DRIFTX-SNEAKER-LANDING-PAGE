@@ -439,6 +439,22 @@
           Your Cart (<span id="drawer-cart-count">0</span>)
         </h3>
       </div>
+      <!-- Close Button -->
+      <button 
+        id="cart-close-btn" 
+        class="text-neutral-400 hover:text-white p-1 rounded-lg transition"
+        aria-label="Close Cart"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Dynamic Cart Items injected via JS -->
+    </div>
       </section>
 <script src="script.js"></script>
 </body>
