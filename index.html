@@ -417,6 +417,29 @@
         </div>
       </div>
         </section>
+        <!-- ================= SECTION 6: INTERACTIVE SLIDE-OVER CART DRAWER ================= -->
+  <!-- Cart Backdrop Overlay -->
+  <div 
+    id="cart-overlay" 
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"
+  ></div>
+
+  <!-- Cart Aside Drawer -->
+  <aside 
+    id="cart-drawer" 
+    class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-[#0A0E17] border-l border-neutral-800 z-50 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl"
+  >
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-neutral-800/80 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-[#CCFF00]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <h3 class="text-base font-extrabold uppercase tracking-wider text-white">
+          Your Cart (<span id="drawer-cart-count">0</span>)
+        </h3>
+      </div>
+      </section>
 <script src="script.js"></script>
 </body>
 </html>
