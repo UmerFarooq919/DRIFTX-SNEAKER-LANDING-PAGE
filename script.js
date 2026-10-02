@@ -192,3 +192,134 @@ function setupCartDrawer() {
   if (cartCloseBtn) cartCloseBtn.addEventListener("click", closeCart);
   if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
 }
+// Render Cart Items
+function updateCartUI() {
+  const container = document.getElementById("cart-items-container");
+  const counterNav = document.getElementById("cart-counter");
+  const counterDrawer = document.getElementById("drawer-cart-count");
+  const subtotalEl = document.getElementById("cart-subtotal");
+  const totalEl = document.getElementById("cart-total");
+  const shippingEl = document.getElementById("cart-shipping");
+
+  const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  if (counterNav) counterNav.textContent = totalCount;
+  if (counterDrawer) counterDrawer.textContent = totalCount;
+
+  if (cart.length === 0) {
+    if (container) {
+      container.innerHTML = `
+        <div class="h-64 flex flex-col items-center justify-center text-neutral-500 space-y-3">
+          <svg class="w-12 h-12 stroke-current opacity-40" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <p class="text-xs uppercase tracking-wider font-bold">Your cart is empty</p>
+        </div>
+      `;
+    }
+    if (subtotalEl) subtotalEl.textContent = "$0.00";
+    if (totalEl) totalEl.textContent = "$0.00";
+    if (shippingEl) shippingEl.textContent = "$0.00";
+    return;
+  }
+
+  if (container) {
+    container.innerHTML = cart.map(item => `
+      <div class="flex items-center gap-4 bg-[#0E121B] border border-neutral-800/80 rounded-2xl p-3">
+        <!-- Sneaker Image -->
+        <div class="w-16 h-16 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0 p-1">
+          <img src="${item.image}" alt="${item.name}" class="w-full h-full object-contain -rotate-12" />
+        </div>
+
+        <!-- Details -->
+        <div class="flex-1 min-w-0">
+          <h4 class="text-xs font-bold text-white truncate">${item.name}</h4>
+          <p class="text-xs text-[#CCFF00] font-extrabold mt-0.5">$${item.price.toFixed(2)}</p>
+          
+          <!-- Quantity Controls -->
+          <div class="flex items-center gap-2 mt-2">
+            <button 
+              onclick="changeCartQuantity('${item.id}', -1)"
+              class="w-5 h-5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white flex items-center justify-center text-xs font-bold"
+            >-</button>
+            <span class="text-xs font-mono font-bold text-white w-4 text-center">${item.quantity}</span>
+            <button 
+              onclick="changeCartQuantity('${item.id}', 1)"
+              class="w-5 h-5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white flex items-center justify-center text-xs font-bold"
+            >+</button>
+          </div>
+        </div>
+
+        <!-- Remove Item Button -->
+        <button 
+          onclick="removeCartItem('${item.id}')"
+          class="text-neutral-500 hover:text-red-400 p-1 transition"
+          title="Remove"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    `).join('');
+  }
+
+  // Calculate Subtotal & Shipping
+  const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  const isFreeShipping = subtotal >= 75 || subtotal === 0;
+  const shippingFee = isFreeShipping ? 0 : 15;
+  const total = subtotal + shippingFee;
+
+  if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+  if (shippingEl) shippingEl.textContent = isFreeShipping ? "Free" : `$${shippingFee.toFixed(2)}`;
+  if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+}
+
+// Quantity Change Handler
+function changeCartQuantity(id, delta) {
+  const product = cart.find(item => item.id === id);
+  if (!product) return;
+
+  product.quantity += delta;
+  if (product.quantity <= 0) {
+    removeCartItem(id);
+  } else {
+    updateCartUI();
+  }
+}
+
+// Remove Item Handler
+function removeCartItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCartUI();
+}
+
+// Add to Cart from Featured Grid
+function handleAddToCart(id) {
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    const product = sneakerProducts.find(p => p.id === id);
+    if (product) {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+        image: product.image
+      });
+    }
+  }
+  updateCartUI();
+  
+  // Drawer automatic slide open kara
+  const cartBtn = document.getElementById("cart-btn");
+  if (cartBtn) cartBtn.click();
+}
+
+// Document Load Event
+document.addEventListener("DOMContentLoaded", () => {
+  renderFeaturedProducts();
+  setupCartDrawer();
+  updateCartUI();
+});
