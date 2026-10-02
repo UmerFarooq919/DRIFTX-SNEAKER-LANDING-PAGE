@@ -165,3 +165,30 @@ let cart = [
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=300&q=80"
   }
 ];
+// Open / Close Drawer Controls
+function setupCartDrawer() {
+  const cartBtn = document.getElementById("cart-btn");
+  const cartCloseBtn = document.getElementById("cart-close-btn");
+  const cartDrawer = document.getElementById("cart-drawer");
+  const cartOverlay = document.getElementById("cart-overlay");
+
+  function openCart() {
+    if (!cartDrawer || !cartOverlay) return;
+    cartOverlay.classList.remove("hidden");
+    setTimeout(() => cartOverlay.classList.remove("opacity-0"), 10);
+    cartDrawer.classList.remove("translate-x-full");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeCart() {
+    if (!cartDrawer || !cartOverlay) return;
+    cartDrawer.classList.add("translate-x-full");
+    cartOverlay.classList.add("opacity-0");
+    setTimeout(() => cartOverlay.classList.add("hidden"), 300);
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  if (cartBtn) cartBtn.addEventListener("click", openCart);
+  if (cartCloseBtn) cartCloseBtn.addEventListener("click", closeCart);
+  if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
+}
