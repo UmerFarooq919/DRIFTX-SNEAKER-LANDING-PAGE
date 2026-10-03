@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", closeNav);
   });
 });
-// Featured Sneakers Mock Data
+
 const sneakerProducts = [
   {
     id: "nike-air-max-270",
@@ -62,7 +62,7 @@ const sneakerProducts = [
     image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80"
   }
 ];
-// Render Featured Grid Cards
+
 function renderFeaturedProducts() {
   const container = document.getElementById("products-grid");
   if (!container) return;
@@ -130,18 +130,16 @@ function renderFeaturedProducts() {
     </div>
   `).join('');
 }
-// Dummy handler for Cart trigger
+
 function handleAddToCart(id) {
   const item = sneakerProducts.find(p => p.id === id);
   console.log("Added to cart:", item.name);
-  // Jab cart drawer code karenge, tab yeh direct cart state update karega!
 }
 
-// Call on page load
 document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedProducts();
 });
-// Initial Cart State (Default kahi items thevle ahet jya mule suruvatila preview disel)
+
 let cart = [
   {
     id: "nike-air-max-270",
@@ -165,7 +163,8 @@ let cart = [
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=300&q=80"
   }
 ];
-// Open / Close Drawer Controls
+
+// Open / Close Cart Drawer Controls
 function setupCartDrawer() {
   const cartBtn = document.getElementById("cart-btn");
   const cartCloseBtn = document.getElementById("cart-close-btn");
@@ -192,7 +191,7 @@ function setupCartDrawer() {
   if (cartCloseBtn) cartCloseBtn.addEventListener("click", closeCart);
   if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
 }
-// Render Cart Items
+
 function updateCartUI() {
   const container = document.getElementById("cart-items-container");
   const counterNav = document.getElementById("cart-counter");
@@ -263,7 +262,6 @@ function updateCartUI() {
     `).join('');
   }
 
-  // Calculate Subtotal & Shipping
   const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
   const isFreeShipping = subtotal >= 75 || subtotal === 0;
   const shippingFee = isFreeShipping ? 0 : 15;
@@ -274,7 +272,6 @@ function updateCartUI() {
   if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
 }
 
-// Quantity Change Handler
 function changeCartQuantity(id, delta) {
   const product = cart.find(item => item.id === id);
   if (!product) return;
@@ -287,13 +284,11 @@ function changeCartQuantity(id, delta) {
   }
 }
 
-// Remove Item Handler
 function removeCartItem(id) {
   cart = cart.filter(item => item.id !== id);
   updateCartUI();
 }
 
-// Add to Cart from Featured Grid
 function handleAddToCart(id) {
   const existing = cart.find(item => item.id === id);
   if (existing) {
@@ -312,12 +307,10 @@ function handleAddToCart(id) {
   }
   updateCartUI();
   
-  // Drawer automatic slide open kara
   const cartBtn = document.getElementById("cart-btn");
   if (cartBtn) cartBtn.click();
 }
 
-// Document Load Event
 document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedProducts();
   setupCartDrawer();
