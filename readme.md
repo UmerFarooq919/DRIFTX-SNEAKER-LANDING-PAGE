@@ -61,14 +61,14 @@ A high-energy, responsive e-commerce landing page built for modern sneakerheads 
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/UmerFarooq919/your-repo-name.git
+   git clone https://github.com/UmerFarooq919/KICKZ-SNEAKER-LANDING-PAGE.git
    
    ```
 
 2. **Navigate to the directory:**
 
    ```
-   cd your-repo-name
+   cd KICKZ-SNEAKER-LANDING-PAGE
    
    ```
 
