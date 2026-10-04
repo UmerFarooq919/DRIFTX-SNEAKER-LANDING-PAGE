@@ -1,4 +1,4 @@
-# KICKZ — Urban Streetwear Sneaker Landing Page ⚡👟
+# DRIFTX — Urban Streetwear Sneaker Landing Page ⚡👟
 
 A high-energy, responsive e-commerce landing page built for modern sneakerheads and streetwear culture enthusiasts. Engineered with semantic **HTML5**, utility-first **Tailwind CSS**, and dynamic **JavaScript (ES6+)**.
 
@@ -61,14 +61,14 @@ A high-energy, responsive e-commerce landing page built for modern sneakerheads 
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/UmerFarooq919/KICKZ-SNEAKER-LANDING-PAGE.git
+   git clone https://github.com/UmerFarooq919/DRIFTX-SNEAKER-LANDING-PAGE.git
    
    ```
 
 2. **Navigate to the directory:**
 
    ```
-   cd KICKZ-SNEAKER-LANDING-PAGE
+   cd DRIFTX-SNEAKER-LANDING-PAGE
    
    ```
 
