@@ -32,7 +32,7 @@ const sneakerProducts = [
   {
     id: "nike-air-max-270",
     name: "Nike Air Max 270",
-    category: "Running / Lifestyle",
+    category: "Running",
     price: 159.99,
     tag: "New",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
@@ -40,7 +40,7 @@ const sneakerProducts = [
   {
     id: "jordan-1-retro-high",
     name: "Jordan 1 Retro High OG",
-    category: "Lifestyle / Streetwear",
+    category: "Streetwear",
     price: 179.99,
     tag: null,
     image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"
@@ -48,7 +48,7 @@ const sneakerProducts = [
   {
     id: "new-balance-550",
     name: "New Balance 550",
-    category: "Lifestyle / Classic",
+    category: "Classic",
     price: 109.99,
     tag: null,
     image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"
@@ -56,7 +56,7 @@ const sneakerProducts = [
   {
     id: "adidas-forum-low",
     name: "Adidas Forum Low",
-    category: "Lifestyle / Casual",
+    category: "Casual",
     price: 99.99,
     tag: null,
     image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80"
@@ -70,7 +70,7 @@ function renderFeaturedProducts() {
   container.innerHTML = sneakerProducts.map(item => `
     <div class="group relative bg-[#0E121B] border border-neutral-800/80 hover:border-neutral-700 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
       
-      <!-- Card Top: Tag & Favorite Heart -->
+      <!-- Card Top -->
       <div class="flex items-center justify-between z-10">
         <div>
           ${item.tag ? `
@@ -101,7 +101,7 @@ function renderFeaturedProducts() {
         />
       </div>
 
-      <!-- Card Details & Cart Button -->
+      <!-- Card Details -->
       <div class="pt-4 border-t border-neutral-800/80 flex items-end justify-between gap-3">
         <div>
           <h3 class="text-sm font-bold text-white group-hover:text-[#CCFF00] transition line-clamp-1">
@@ -115,7 +115,7 @@ function renderFeaturedProducts() {
           </p>
         </div>
 
-        <!-- Add To Cart Quick Action -->
+        <!-- Add To Cart -->
         <button 
           onclick="handleAddToCart('${item.id}')"
           class="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-800 group-hover:bg-[#CCFF00] group-hover:border-[#CCFF00] text-neutral-300 group-hover:text-black flex items-center justify-center transition-all duration-300 shadow-sm"
